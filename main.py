@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
+from rag import main as rag_main   # import your RAG entrypoint
+
 
 # Load variables from .env file
 load_dotenv()
@@ -28,4 +30,9 @@ chat_completion = client.chat.completions.create(
     model="llama-3.3-70b-versatile",
 )
 
+print("\n🤖 Groq test reply:")
 print(chat_completion.choices[0].message.content)
+
+# ─────────── Run RAG ───────────
+print("\n🚀 Running RAG pipeline:\n")
+rag_main()
