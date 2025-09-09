@@ -1,0 +1,51 @@
+ProductID,ProductName,Category,Description,Price
+P001,Wireless Mouse,Electronics,"A compact wireless mouse with ergonomic design, 2.4GHz connection, and long battery life.",15.99
+P002,USB-C Cable,Electronics,"Durable USB-C cable, fast charging and data transfer compatible with most devices.",9.99
+P003,Cotton T-Shirt,Clothing,Soft 100% cotton t-shirt available in multiple colors and sizes.,12.49
+P004,Running Shoes,Footwear,Lightweight running shoes with breathable mesh upper and cushioned sole.,59.99
+P005,LED Desk Lamp,Home & Kitchen,Adjustable LED desk lamp with touch control and multiple brightness levels.,22.5
+P006,Water Bottle,Sports,Reusable BPA-free water bottle with 500ml capacity and leak-proof design.,8.99
+P007,Noise Cancelling Headphones,Electronics,Over-ear headphones with active noise cancellation and high-fidelity sound.,89.99
+P008,Backpack,Accessories,Durable backpack with multiple compartments for travel and daily use.,34.99
+P009,Ceramic Mug,Home & Kitchen,"12oz ceramic mug with heat-resistant coating, ideal for coffee or tea.",6.5
+P010,Sports Watch,Sports,Water-resistant sports watch with stopwatch and heart-rate monitoring.,49.99
+P011,Laptop Stand,Electronics,Adjustable aluminum laptop stand for ergonomic workspace setup.,29.99
+P012,Jeans,Clothing,Classic denim jeans with comfortable fit and stylish design.,39.99
+P013,Smartphone,Electronics,"Latest smartphone with high-resolution display, dual camera, and fast processor.",499.99
+P014,Flip Flops,Footwear,Comfortable flip flops suitable for indoor and outdoor use.,12.99
+P015,Office Chair,Furniture,Ergonomic office chair with lumbar support and adjustable height.,120
+P016,Table Lamp,Home & Kitchen,Elegant table lamp with modern design and energy-saving LED bulb.,18.5
+P017,Graphic T-Shirt,Clothing,"Trendy graphic t-shirt with unique designs, made of soft cotton.",14.99
+P018,Wireless Charger,Electronics,Fast wireless charger compatible with most Qi-enabled devices.,24.99
+P019,Running Shorts,Clothing,Lightweight and breathable running shorts for men and women.,19.99
+P020,Desk Organizer,Home & Kitchen,Multi-compartment desk organizer to keep stationery and documents tidy.,15.99
+P021,Sneakers,Footwear,Fashionable sneakers with flexible sole and comfortable fit.,59.99
+P022,Tablet,Electronics,High-performance tablet with touchscreen display and long-lasting battery.,299.99
+P023,Yoga Mat,Sports,Non-slip yoga mat with extra cushioning for comfort and support.,22
+P024,Leather Belt,Accessories,Genuine leather belt with classic buckle for casual and formal wear.,18.5
+P025,Wireless Keyboard,Electronics,Slim wireless keyboard with quiet keys and long battery life.,29.99
+P026,Cap,Clothing,Adjustable baseball cap made from breathable fabric.,11.99
+P027,Blender,Home & Kitchen,High-speed blender with multiple settings for smoothies and sauces.,49.99
+P028,Socks,Clothing,Comfortable cotton socks available in assorted colors.,4.99
+P029,Monitor,Electronics,24-inch full HD monitor with vibrant colors and fast refresh rate.,159.99
+P030,Running Jacket,Clothing,Lightweight running jacket with water-resistant fabric and reflective details.,79.99
+P031,Coffee Maker,Home & Kitchen,Programmable coffee maker with 12-cup capacity and auto shut-off feature.,59.99
+P032,Tablet Case,Electronics,Protective tablet case with shock-absorbent material and sleek design.,19.99
+P033,Waterproof Jacket,Clothing,"Durable waterproof jacket for outdoor activities, available in multiple sizes.",89.99
+P034,Headphones,Electronics,High-quality headphones with immersive sound and comfortable ear pads.,39.99
+P035,Sports Shorts,Sports,Breathable sports shorts with elastic waistband for easy movement.,24.99
+P036,Smartwatch,Electronics,"Smartwatch with fitness tracking, notifications, and customizable watch faces.",199.99
+P037,Notebook,Stationery,"A5 notebook with lined pages, perfect for notes, journals, and sketches.",3.5
+P038,Pen Set,Stationery,Set of 5 gel pens with smooth ink flow and ergonomic design.,5.99
+P039,Handbag,Accessories,Stylish handbag with spacious compartments and premium material.,79.99
+P040,Wireless Earbuds,Electronics,Compact wireless earbuds with Bluetooth connectivity and clear sound.,49.99
+P041,T-shirt,Clothing,"Casual t-shirt with soft fabric and relaxed fit, suitable for everyday wear.",15.99
+P042,Desk Lamp,Home & Kitchen,Modern desk lamp with adjustable brightness and minimalist design.,27.5
+P043,Backpack,Accessories,Lightweight backpack with padded straps and laptop compartment.,39.99
+P044,Running Shoes,Footwear,Durable running shoes with anti-slip sole and breathable material.,65
+P045,Blender,Home & Kitchen,Multi-purpose blender with detachable blades for easy cleaning.,54.99
+P046,Yoga Mat,Sports,Eco-friendly yoga mat with non-toxic material and excellent grip.,20
+P047,Tablet,Electronics,"Portable tablet with high-resolution display, suitable for work and entertainment.",299.99
+P048,Jeans,Clothing,Slim-fit jeans made from premium denim for everyday wear.,39.99
+P049,Office Chair,Furniture,Comfortable office chair with adjustable armrests and swivel base.,129.99
+P050,Socks,Clothing,Pack of 4 comfortable socks in assorted colors.,4.99

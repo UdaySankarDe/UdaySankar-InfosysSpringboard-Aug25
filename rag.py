@@ -27,18 +27,17 @@ from langchain.chains import create_retrieval_chain
 # ───────────────────────────────────────────────────────────
 # CONFIG
 # ───────────────────────────────────────────────────────────
-DOCS_PATH     = Path(r"C:\Users\Uday Sankar De\Desktop\Infy Internship 2025\UdaySankar-InfosysSpringboard-Aug25\data")
+#DOCS_PATH     = Path(r"C:\Users\Uday Sankar De\Desktop\Infy Internship 2025\UdaySankar-InfosysSpringboard-Aug25\data")
          # folder or file
-INDEX_PATH    = Path("./faiss_index")      # FAISS storage
-REBUILD_INDEX = True                       # toggle this
-EMBED_MODEL   = "models/embedding-001"     # Gemini embeddings
-CHAT_MODEL    = "gemini-1.5-flash"         # Gemini chat model
-TOP_K         = 4
-SEARCH_TYPE   = "mmr"                      # mmr | similarity
-CHUNK_SIZE    = 800
-CHUNK_OVERLAP = 120
-QUESTION      = "Give me a 2-line summary of the docs and cite sources."
-
+#INDEX_PATH    = Path("./faiss_index")      # FAISS storage
+#REBUILD_INDEX = True                       # toggle this
+#EMBED_MODEL   = "models/embedding-001"     # Gemini embeddings
+#CHAT_MODEL    = "gemini-1.5-flash"         # Gemini chat model
+#TOP_K         = 4
+#SEARCH_TYPE   = "mmr"                      # mmr | similarity
+#CHUNK_SIZE    = 800
+#CHUNK_OVERLAP = 120
+#QUESTION      = "List all products from the Sports category with their names, descriptions, and prices."
 
 # ───────────────────────────────────────────────────────────
 # STEP 1) Ensure API Keys
@@ -50,7 +49,7 @@ if not os.getenv("GROQ_API_KEY"):
     print("⚠️ GROQ_API_KEY not found (you can still run with Gemini only)")
 
 
-# # ───────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────
 # STEP 2) Load documents
 # ───────────────────────────────────────────────────────────
 def find_files(path: Path) -> list[Path]:
@@ -65,26 +64,43 @@ def load_documents(paths: list[Path]) -> list[Document]:
         try:
             if p.suffix.lower() in {".txt", ".md"}:
                 docs.extend(TextLoader(str(p), encoding="utf-8").load())
+
             elif p.suffix.lower() == ".pdf":
                 docs.extend(PyPDFLoader(str(p)).load())
+
             elif p.suffix.lower() == ".csv":
                 import pandas as pd
 
                 df = pd.read_csv(str(p))
 
-                # ⚡ Limit rows for testing (change 10 as needed)
-                df = df.head(20)
+                # ⚡ Limit rows for testing (change 20 as needed)
+                df = df.head(50)
 
-                # Use Title + Desc
-                if "Title" in df.columns and "Desc" in df.columns:
+                # Use ProductName + Description as main content
+                if {"ProductName", "Description"}.issubset(df.columns):
                     for _, row in df.iterrows():
-                        title = str(row["Title"])
-                        desc = str(row["Desc"])
+                        product_id = str(row.get("ProductID", ""))
+                        title = str(row["ProductName"])
+                        desc = str(row["Description"])
+                        category = str(row.get("Category", ""))
+                        price = str(row.get("Price", ""))
+
+                        # Main content for RAG
                         content = f"Product: {title}\nDescription: {desc}"
-                        metadata = {"source": str(p), "title": title}
+
+                        # Extra info stored in metadata
+                        metadata = {
+                            "source": str(p),
+                            "product_id": product_id,
+                            "title": title,
+                            "category": category,
+                            "price": price,
+                        }
+
                         docs.append(Document(page_content=content, metadata=metadata))
                 else:
-                    print(f"[WARN] CSV {p} missing Title or Desc column.")
+                    print(f"[WARN] CSV {p} missing ProductName or Description column.")
+
         except Exception as e:
             print(f"[WARN] Could not load {p}: {e}")
     return docs
@@ -162,8 +178,26 @@ def format_sources(ctx: list[Document]) -> str:
     for d in ctx:
         src = d.metadata.get("source") or "unknown"
         page = d.metadata.get("page")
+        product_id = d.metadata.get("product_id")
+        category = d.metadata.get("category")
+        price = d.metadata.get("price")
+        title = d.metadata.get("title")
+
         name = Path(src).name
-        lines.append(f"- {name}" + (f" (page {page})" if page is not None else ""))
+
+        line = f"- {name}"
+        if title:
+            line += f" | {title}"
+        if category:
+            line += f" | Category: {category}"
+        if price:
+            line += f" | Price: {price}"
+        if product_id:
+            line += f" | ID: {product_id}"
+        if page is not None:
+            line += f" (page {page})"
+
+        lines.append(line)
     return "\n".join(lines)
 
 
